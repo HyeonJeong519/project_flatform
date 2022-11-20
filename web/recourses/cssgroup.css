@@ -1,0 +1,7 @@
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row-reverse wrap;
+  align-content: space-around;
+}
