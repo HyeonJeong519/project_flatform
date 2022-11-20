@@ -11,6 +11,7 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+
+  <jsp:include page="footer.jsp"/>
   </body>
 </html>
