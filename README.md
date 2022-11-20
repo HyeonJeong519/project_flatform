@@ -1,5 +1,6 @@
 
-# 동아리 프로젝트 관리 플랫폼(Project Flatform)
+# 동아리 프로젝트 관리 플랫폼
+# (Project Flatform)
 
 
 ## Description
