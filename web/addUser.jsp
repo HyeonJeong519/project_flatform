@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: hwanghyeonjeong
-  Date: 2022/11/20
-  Time: 10:25 PM
-  To change this template use File | Settings | File Templates.
---%>
+<script type="text/javascript" src="./recourses/js/validation.js"></script>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,12 +6,12 @@
 </head>
 <body>
 <form action="./processAddUser.jsp" method="post">
-  <input type="text" name="id">
-  <input type="password" name="password">
-  <input type="text" name="name">
-  <input type="text" name="email">
-  <input type="text" name="phonenumber">
-  <input type="submit" value="전송">
+  <input type="text" name="id" id="id">
+  <input type="password" name="password" id="password">
+  <input type="text" name="name" id="name">
+  <input type="text" name="email" id="email">
+  <input type="text" name="phonenumber" id="phonenumber">
+  <input type="button" value="등록" onclick="CheckAddUser()">
 </form>
 </body>
 </html>
