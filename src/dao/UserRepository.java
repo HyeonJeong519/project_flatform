@@ -4,9 +4,18 @@ import dto.User;
 import util.DatabaseUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserRepository {
+
+    public static int USER_EXISTENT = 1;
+    public static int USER_NONEXISTENT = 2;
+    public static int USER_JOIN_SUCCESS = 3;
+    public static int USER_LOGIN_SUCCESS = 4;
+    public static int USER_LOGIN_FAIL = 5;
     Connection connection = DatabaseUtil.getConnection();
     private ArrayList<User> listofUser = new ArrayList<User>();
 
@@ -19,15 +28,41 @@ public class UserRepository {
 
     }
     public User getUserById(String id){
-        User userById = null;
-        for(int i = 0; i<listofUser.size();i++){
-            User user = listofUser.get(i);
-            if(user != null && user.getId() != null && user.getId().equals(id)){
-                userById = user;
-                break;
+        int rt = 0;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        User user = null;
+
+        String query = "SELECT * FROM USER WHERE ID = ?";
+
+        try {
+            conn = DatabaseUtil.getConnection();
+
+            if (conn == null)
+                return user;
+            pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, id);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                user = new User(rs.getString("id"),
+                        rs.getString("password"),
+                        rs.getString("name"),
+                        rs.getString("email"),
+                        rs.getString("phonenumber"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-        return userById;
+        return user;
     }
 
     public int join(String id, String password, String name, String email, String phoneNumber){
@@ -52,8 +87,39 @@ public class UserRepository {
         return -1;
     }
 
-    public ArrayList<User> getAllUsers() {
-        return listofUser;
+    public int confirmLogin(String id, String password) {
+        int rt = 0;
+        Connection connection = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String query = "SELECT PW FROM USER WHERE ID = ?";
+
+        try {
+            connection = DatabaseUtil.getConnection();
+
+            if (connection == null) return rt;
+            pstmt = connection.prepareStatement(query);
+            pstmt.setString(1, id);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                if (password.equals(rs.getString("password")))
+                    rt = USER_LOGIN_SUCCESS;
+                else
+                    rt = USER_LOGIN_FAIL;
+            } else
+                rt = USER_NONEXISTENT;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (connection != null) connection.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return rt;
     }
 
     public void addUser(User user) {

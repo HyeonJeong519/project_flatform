@@ -1,16 +1,14 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: hwanghyeonjeong
-  Date: 2022/11/20
-  Time: 12:28 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<link href="/recourses/css/cssgroup.css" rel="stylesheet" type="text/css">
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
+<jsp:include page="header.jsp"/>
+<div class="container" align="center">
+    <div class="col-md-4 col-md-offset-4">
+        <h3 class="form-signin-heading">Please sign in</h3>
 <%
     String error = request.getParameter("error");
     if(error != null){
@@ -30,6 +28,8 @@
     </div>
     <button class="btn btn btn-lg btn-success btn-block" type="submit">로그인</button>
 </form>
+    </div>
+</div>
 <jsp:include page="footer.jsp"/>
 </body>
 </html>

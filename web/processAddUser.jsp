@@ -1,4 +1,3 @@
-<%@ page import="dto.User" %>
 <%@ page import="dao.UserRepository" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -7,7 +6,6 @@
 </head>
 <body>
 <%
-    //사용자가 보낸 데이터를 한글을 사용할 수 있는 형식으로 변환
     request.setCharacterEncoding("UTF-8");
     String id = null;
     String password = null;
@@ -27,7 +25,7 @@
         out.println("<div class='alert alert-danger'>");
         out.println("데이터 전송 성공");
         out.println("</div>");
-    }
+    }else response.sendRedirect("./index.jsp");
 %>
 </body>
 </html>

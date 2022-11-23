@@ -11,7 +11,7 @@
   <input type="text" name="name" id="name">
   <input type="text" name="email" id="email">
   <input type="text" name="phonenumber" id="phonenumber">
-  <input type="button" value="등록" onclick="CheckAddUser()">
+  <input type="submit" value="등록" onclick="CheckAddUser()">
 </form>
 </body>
 </html>

@@ -1,18 +1,21 @@
 package dto;
 
 public class User {
-    String id;
-    String password;
-    String name;
-    String email;
-    String phoneNumber;
+    private String id;
+    private String password;
+    private String name;
+    private String email;
+    private String phoneNumber;
 
     public User(){
         super();
     }
-    public User(String id, String password){
+    public User(String id, String password, String name, String email, String phoneNumber){
         this.id = id;
         this.password = password;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
     }
 
     public String getId() {

@@ -8,7 +8,6 @@
   </head>
   <body>
   <jsp:include page="header.jsp"/>
-  <br>
   <div class="jumbotron">
     <div class="container">
       <h1>InQ</h1>
@@ -16,13 +15,12 @@
       <p><a class="btn btn-primary btn-lg" href="#" role="button">ABOUT InQ &raquo;</a></p>
     </div>
   </div>
-
   <div class="container">
     <div class="row">
       <div class="col-md-4">
         <h2>프로젝트 활동</h2>
         <p>연간 4회(방중 2회, 학기중 2회) 동아리내 자유주제로 프로젝트를 진행하고 있습니다. 이전 프로젝트와 현재 인원을 모집중인 프로젝트를 보시려면 아래 버튼을 눌러주세요.</p>
-        <p><a class="btn btn-default" href="#" role="button">Projects &raquo;</a></p>
+        <p><a class="btn btn-default" href="./aboutProject.jsp" role="button">Projects &raquo;</a></p>
       </div>
       <div class="col-md-4">
         <h2>스터디 활동</h2>
@@ -35,7 +33,7 @@
         <p><a class="btn btn-default" href="#" role="button">사진 보기 &raquo;</a></p>
       </div>
     </div>
-    <br>
+    <hr>
   <jsp:include page="footer.jsp"/>
   </body>
 </html>

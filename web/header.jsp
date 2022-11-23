@@ -16,18 +16,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">InQ</a>
+      <a class="navbar-brand" href="/">InQ</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="#">회원가입</a></li>
+        <li><a href="./addUser.jsp">회원가입</a></li>
         <li><a href="#">스터디</a></li>
         <li><a href="#">프로젝트</a></li>
           </ul>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">로그인 <span class="sr-only">(current)</span></a></li>
+        <li><a href="./login.jsp">로그인 <span class="sr-only">(current)</span></a></li>
         <li><a href="users.jsp">관리자 로그인</a></li>
       </ul>
     </div><!--/.nav-collapse -->
