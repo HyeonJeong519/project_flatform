@@ -87,19 +87,19 @@ public class UserRepository {
         return -1;
     }
 
-    public int confirmLogin(String id, String password) {
+    public int confirmLogin(String userId, String password) {
         int rt = 0;
         Connection connection = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        String query = "SELECT PW FROM USER WHERE ID = ?";
+        String query = "SELECT PASSWORD FROM USER WHERE USERID = ?";
 
         try {
             connection = DatabaseUtil.getConnection();
 
             if (connection == null) return rt;
             pstmt = connection.prepareStatement(query);
-            pstmt.setString(1, id);
+            pstmt.setString(1, userId);
             rs = pstmt.executeQuery();
             if (rs.next()) {
                 if (password.equals(rs.getString("password")))

@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<link rel="stylesheet" href="./resources/css/bootstrap.min.css"/>
+
 <html>
 <head>
     <title>Title</title>

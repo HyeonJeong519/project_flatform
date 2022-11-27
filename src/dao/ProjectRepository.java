@@ -46,7 +46,8 @@ public class ProjectRepository {
                         rs.getString("projectEndDate"),
                         rs.getInt("maxParticipant"),
                         rs.getString("userId"),
-                        rs.getString("fileName"));
+                        rs.getString("fileName"),
+                rs.getString("projectInfo"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -62,8 +63,8 @@ public class ProjectRepository {
         return project;
     }
     public int addProject(String projectId, String projectName, String projectCategory, String projectStartDate,
-                          String projectEndDate, int maxParticipant, String userId, String fileName){
-        String SQL = "INSERT INTO PROJECT VALUES (?,?,?,?,?,?,?,?)";
+                          String projectEndDate, int maxParticipant, String userId, String fileName, String projectInfo){
+        String SQL = "INSERT INTO PROJECT VALUES (?,?,?,?,?,?,?,?,?)";
         try {
             // 각각의 데이터를 실제로 넣어준다.
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
@@ -77,6 +78,7 @@ public class ProjectRepository {
             preparedStatement.setInt(6, maxParticipant);
             preparedStatement.setString(7, userId);
             preparedStatement.setString(8, fileName);
+            preparedStatement.setString(9, projectInfo);
 
             // 명령어를 수행한 결과 반환, 반환값: insert가 된 데이터의 개수
             return preparedStatement.executeUpdate();

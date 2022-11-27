@@ -1,25 +1,18 @@
 <%@ page import="java.sql.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<link rel="stylesheet" href="./resources/css/bootstrap.min.css"/>
 
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
-<jsp:include page="header2.jsp"/>
-<div class="jumbotron">
-    <div class="container">
-        <h1 class="display-3">프로젝트 내역</h1>
-    </div>
-</div>
+<%
+    String projectId = (String) session.getAttribute("projectId");
+%>
+<jsp:include page="header2.jsp"></jsp:include>
 <div class="container">
-    <div align="right">
-        <input type="button" value="프로젝트 생성" onclick="location.href='./addProject.jsp'"></input>
-    </div>
-    <div class="row" align="center">
+    <div class="row">
         <%
             Class.forName("com.mysql.jdbc.Driver");
 
@@ -32,8 +25,7 @@
                 String dbUser = "root";
                 String dbPass = "root1234";
 
-                String query = "select * from PROJECT order by projectId";
-
+                String query = "select * from PROJECT where projectId='" + projectId + "'";
                 // 2. 데이터베이스 커넥션 생성
                 connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 
@@ -47,18 +39,27 @@
                 while (rs.next()) {
         %>
         <%
-            String projectId = rs.getString("projectId");
-            session.setAttribute("projectId", projectId);
+            String fileName = rs.getString("fileName");
+            session.setAttribute("fileName", fileName);
         %>
-        <div class="col-md-4">
-            <h3><%=rs.getString("projectName")%> / <%=rs.getString("projectId")%></h3>
-            <h4><%=rs.getString("projectCategory")%></h4>
-            <p>프로젝트 시작일 : <%=rs.getString("projectStartDate")%></p>
-            <p>프로젝트 종료일 : <%=rs.getString("projectEndDate")%></p>
-            <p>최대 인원 : <%=rs.getInt("maxParticipant")%>명</p>
-            <p><a href="./project.jsp?projectId=<%=rs.getString("projectId")%>" class="btn btn-secondary" role="button">상세 정보 &raquo;</a></p>
-            <hr>
+        <div class="jumbotron">
+            <div class="container">
+                <h2 class="display-3"><%=rs.getString("projectName")%> / <%=rs.getString("projectId")%></h2>
+            </div>
         </div>
+        <div class="col-md-7">
+            <h4><%=rs.getString("projectCategory")%></h4>
+            <br>
+            <p>프로젝트 시작일 : <%=rs.getString("projectStartDate")%></p>
+            <br>
+            <p>프로젝트 종료일 : <%=rs.getString("projectEndDate")%></p>
+            <br>
+            <p>최대 인원 : <%=rs.getInt("maxParticipant")%>명</p>
+            <br>
+            <p>프로젝트 설명 : <%=rs.getString("projectInfo")%>
+            <p>파일 다운 : <a href="./fileDown.jsp?file_name=<%=rs.getString("fileName")%>"><%=rs.getString("fileName")%></a></p>
+        </div>
+    </div>
     <%
             }
         } catch (SQLException ex) {
@@ -81,8 +82,6 @@
             }
         }
     %>
-    </div>
 </div>
-<jsp:include page="footer.jsp"/>
 </body>
 </html>

@@ -13,9 +13,8 @@ public class Project {
     private String userId;
     private String fileName;
 
-    public Project(String projectId, String projectName, String projectCategory, String projectStartDate, String projectEndDate, int maxParticipant, String userId, String fileName) {
+    public Project(String projectId, String projectName, String projectCategory, String projectStartDate, String projectEndDate, int maxParticipant, String userId, String fileName, String projectInfo) {
     }
-
     public String getProjectId() {
         return projectId;
     }

@@ -16,20 +16,18 @@
 <body>
 <%
     request.setCharacterEncoding("UTF-8");
-
     String realFolder = "/Users/hwanghyeonjeong/IdeaProjects/project_flatform/web/recourses/fileupload";
     int maxSize = 5 * 1024 * 1024; //최대 업로드 크기(10M)
     String encType = "utf-8";  //인코딩 유형
-
     MultipartRequest multi = new MultipartRequest(request, realFolder, maxSize,
             encType, new DefaultFileRenamePolicy());
-
 
     String projectId = null;
     String projectName = null;
     String projectCategory = null;
     String projectStartDate = null;
     String projectEndDate = null;
+    String projectInfo = null;
     int maxParticipant = 0;
     String userId = null;
 
@@ -39,24 +37,21 @@
     projectStartDate = multi.getParameter("projectStartDate");
     projectEndDate = multi.getParameter("projectEndDate");
     maxParticipant = Integer.parseInt(multi.getParameter("maxParticipant"));
+    projectInfo = multi.getParameter("projectInfo");
 
     Enumeration files = multi.getFileNames();
     String fname = (String) files.nextElement();
     String fileName = multi.getFilesystemName(fname);
 
     ProjectRepository projectRepository = new ProjectRepository();
+
     int result = projectRepository.addProject(projectId, projectName, projectCategory, projectStartDate,
-            projectEndDate, maxParticipant, userId, fileName);
+            projectEndDate, maxParticipant, userId, fileName, projectInfo);
 
     if (result == 1) {
-        PrintWriter script = response.getWriter();
-        script.println("<script>");
-        script.println("alert('프로젝트가 등록되었습니다.')");
-        script.println("location.href='addProject.jsp';");
-        script.println("</script>");
-        script.close();
-        return;
-    }else response.sendRedirect("./projects.jsp");
+        response.sendRedirect("./projects.jsp");
+
+    } else response.sendRedirect("./projects.jsp");
 %>
 </body>
 </html>

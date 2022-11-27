@@ -44,7 +44,8 @@
         session.setAttribute("name", user.getName());
         session.setAttribute("id", user.getId());
         session.setAttribute("isLogin", true);
-        response.sendRedirect("./index.jsp");
+        String userId = user.getId();
+        response.sendRedirect("./welcome.jsp?userId="+id);
     }
 %>
 </body>

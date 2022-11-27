@@ -25,4 +25,8 @@
             <form-error-page>/master_login_failed.jsp</form-error-page>
         </form-login-config>
     </login-config>
+    <error-page>
+        <excption-code>400</excption-code>
+        <location>/exceptionNoPage.jsp</location>
+    </error-page>
 </web-app>
