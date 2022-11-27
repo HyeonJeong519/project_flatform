@@ -7,7 +7,7 @@
     <title>Title</title>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="header2.jsp"></jsp:include>
 <div class="jumbotron">
     <div class="container">
         <h1 class="display-3">프로젝트 생성</h1>

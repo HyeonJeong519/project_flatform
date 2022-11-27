@@ -22,9 +22,7 @@
     UserRepository userRepository = new UserRepository();
     int result = userRepository.join(id, password, name, email, phonenumber);
     if (result == 1){
-        out.println("<div class='alert alert-danger'>");
-        out.println("데이터 전송 성공");
-        out.println("</div>");
+        response.sendRedirect("./index.jsp");
     }else response.sendRedirect("./index.jsp");
 %>
 </body>

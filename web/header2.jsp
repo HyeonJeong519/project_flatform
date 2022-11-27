@@ -36,6 +36,7 @@
           <li><a href="?language=ko">Korean</a></li>
           <li><a href="?language=en">English</a></li>
           <li><a href="./login.jsp"><%=userId%>님 환영합니다.</a></li>
+          <li><a href="logout.jsp"><fmt:message key="logout"/></a></li>
           <li><a href="users.jsp"><fmt:message key="masterLogin"/></a></li>
         </ul>
       </div>
