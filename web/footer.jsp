@@ -6,6 +6,7 @@
     <title>Title</title>
 </head>
 <body>
+<hr>
 <footer class="box">
     <p>inqinq@gmail.com     <a href="https://github.com/InQ-InQ-InQ-InQ-InQ">https://github.com/InQ-InQ-InQ-InQ-InQ</a></p>
     <p>COPYRIGHT (C) 2022 <span>InQ</span> ALL RIGHTS RESERVED</p>

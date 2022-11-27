@@ -8,7 +8,19 @@
     <title>Title</title>
 </head>
 <body>
-<h3>동아리 회원 목록</h3>
+<jsp:include page="header.jsp"></jsp:include>
+<div class="jumbotron">
+    <div class="container" align="center">
+        <h3>동아리 회원 목록</h3>
+    </div>
+</div>
+<table class="table table-bordered">
+    <tr>
+        <td width="33%">아이디</td>
+        <td width="33%">이름</td>
+        <td width="33%">이메일</td>
+    </tr>
+</table>
 <%
     Class.forName("com.mysql.jdbc.Driver");
 
@@ -37,10 +49,11 @@
         while(rs.next())
         {
 %>
-<tr>
-    <td><%= rs.getString("id") %></td>
-    <td><%= rs.getString("name") %></td>
-</tr>
+        <h2><%= rs.getString("projectName") %></h2>
+        <td width="33%"><%= rs.getString("name") %></td>
+        <td width="33%"><%=rs.getString("email")%></td>
+    </tr>
+</table>
 <%
         }
     }catch(SQLException ex){

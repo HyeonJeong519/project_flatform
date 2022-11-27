@@ -5,6 +5,7 @@ import java.util.Date;
 public class Project {
     private String projectId;
     private String projectName;
+    private String projectInfo;
     private String projectCategory;
     private String projectStartDate;
     private String projectEndDate;
@@ -73,6 +74,14 @@ public class Project {
 
     public String getFileName() {
         return fileName;
+    }
+
+    public String getProjectInfo() {
+        return projectInfo;
+    }
+
+    public void setProjectInfo(String projectInfo) {
+        this.projectInfo = projectInfo;
     }
 
     public void setFileName(String fileName) {

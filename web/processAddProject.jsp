@@ -3,13 +3,11 @@
 <%@ page import="dao.ProjectRepository" %>
 <%@ page import="java.util.SimpleTimeZone" %>
 <%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.io.PrintWriter" %><%--
-  Created by IntelliJ IDEA.
-  User: hwanghyeonjeong
-  Date: 2022/11/23
-  Time: 8:50 AM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.util.Enumeration" %>
+<%@ page import="com.oreilly.servlet.MultipartRequest" %>
+<%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
+<%@ page import="org.apache.commons.lang3.RandomStringUtils" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -19,6 +17,14 @@
 <%
     request.setCharacterEncoding("UTF-8");
 
+    String realFolder = "/Users/hwanghyeonjeong/IdeaProjects/project_flatform/web/recourses/fileupload";
+    int maxSize = 5 * 1024 * 1024; //최대 업로드 크기(10M)
+    String encType = "utf-8";  //인코딩 유형
+
+    MultipartRequest multi = new MultipartRequest(request, realFolder, maxSize,
+            encType, new DefaultFileRenamePolicy());
+
+
     String projectId = null;
     String projectName = null;
     String projectCategory = null;
@@ -26,16 +32,17 @@
     String projectEndDate = null;
     int maxParticipant = 0;
     String userId = null;
-    String fileName = null;
 
-    projectId = (String) request.getParameter("projectId");
-    projectName = (String) request.getParameter("projectName");
-    projectCategory = (String) request.getParameter("projectCategory");
-    projectStartDate = (String)request.getParameter("projectStartDate");
-    projectEndDate = (String) request.getParameter("projectEndDate");
-    maxParticipant = Integer.parseInt(request.getParameter("maxParticipant"));
-    userId = (String) request.getParameter("userId");
-    fileName = (String) request.getParameter("fileName");
+    projectId = RandomStringUtils.random(6, true, true);
+    projectName = multi.getParameter("projectName");
+    projectCategory = multi.getParameter("projectCategory");
+    projectStartDate = multi.getParameter("projectStartDate");
+    projectEndDate = multi.getParameter("projectEndDate");
+    maxParticipant = Integer.parseInt(multi.getParameter("maxParticipant"));
+
+    Enumeration files = multi.getFileNames();
+    String fname = (String) files.nextElement();
+    String fileName = multi.getFilesystemName(fname);
 
     ProjectRepository projectRepository = new ProjectRepository();
     int result = projectRepository.addProject(projectId, projectName, projectCategory, projectStartDate,
@@ -49,7 +56,7 @@
         script.println("</script>");
         script.close();
         return;
-    }else response.sendRedirect("./index.jsp");
+    }else response.sendRedirect("./projects.jsp");
 %>
 </body>
 </html>

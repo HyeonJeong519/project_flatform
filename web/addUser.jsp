@@ -5,13 +5,57 @@
     <title>Title</title>
 </head>
 <body>
-<form action="./processAddUser.jsp" method="post">
-  <input type="text" name="id" id="id">
-  <input type="password" name="password" id="password">
-  <input type="text" name="name" id="name">
-  <input type="text" name="email" id="email">
-  <input type="text" name="phonenumber" id="phonenumber">
-  <input type="submit" value="등록" onclick="CheckAddUser()">
-</form>
+<jsp:include page="header.jsp"/>
+<div class="container" align="center">
+  <h2 class="display-3">회원가입 </h2>
+  <br><br>
+</div>
+<div class="container">
+  <form name="newUser" action="./processAddUser.jsp" class="form-horizontal" method="post">
+    <div class="form-group row">
+      <label class="col-sm-2">아이디</label>
+      <div class="col-sm-3">
+        <input type="text" id="id" name="id" class="form-control">
+        <br>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2">비밀번호</label>
+      <div class="col-sm-3">
+        <input type="password" id="password" name="password" class="form-control">
+        <br>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2">이름</label>
+      <div class="col-sm-3">
+        <input type="text" id="name" name="name" class="form-control">
+        <br>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2">이메일</label>
+      <div class="col-sm-3">
+        <input type="text" id="email" name="email" class="form-control">
+        <br>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2">전화번호</label>
+      <div class="col-sm-3">
+        <input type="text" id="phonenumber" name="phonenumber" class="form-control">
+        <br>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-offset-2 col-sm-10">
+        <br>
+        <input type="submit" class="btn btn-primary" value="등록" onclick="CheckAddUser()">
+        <br>
+      </div>
+    </div>
+  </form>
+</div>
+  <jsp:include page="footer.jsp"/>
 </body>
 </html>
