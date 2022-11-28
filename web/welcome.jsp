@@ -1,3 +1,4 @@
+<%@ page import="java.util.Date" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -9,6 +10,65 @@
 </head>
 <body>
 <jsp:include page="header2.jsp"/>
+<%
+    Cookie lastDate = null;
+
+    String msg = "";
+
+    boolean found = false;
+
+    String newValue = "" + System.currentTimeMillis();
+
+    Cookie[] cookies = request.getCookies();
+
+    if (cookies != null) {
+
+        for (int i = 0; i < cookies.length; i++) {
+
+            lastDate = cookies[i];
+
+            if (lastDate.getName().equals("lastdateCookie")) {
+
+                found = true;
+                break;
+            }
+        }
+    }
+
+    if (!found) {
+
+        msg = "처음 방문 입니다......";
+
+        // 쿠키 객체를 생성
+        lastDate = new Cookie("lastdateCookie", newValue);
+
+        // 쿠키 속성값을 설정
+        lastDate.setMaxAge(365*24*60*60);    // 365일
+        lastDate.setPath("/");
+
+        // 쿠키를 추가
+        response.addCookie(lastDate);
+    }
+
+    else {
+        long conv = new Long(lastDate.getValue()).longValue();
+
+        Date date = new Date(conv);
+        String year = date.getYear() + 1900 + "년";
+        String month = date.getMonth() + 1 + "월";
+        String day = date.getDay() + "일";
+        String hour = date.getHours() + "시";
+        String minute = date.getMinutes() + "분";
+        msg = year + month + day + hour + minute;
+
+        // 쿠키에 새 값을 추가
+        lastDate.setValue(newValue);
+
+        // 쿠키를 추가
+        response.addCookie(lastDate);
+    }
+%>
+<div align="center"><h3>마지막 방문일은 <%=msg%> 입니다.</h3></div>
 <div class="jumbotron">
     <div class="container">
         <h1>InQ</h1>

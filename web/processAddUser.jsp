@@ -1,4 +1,6 @@
 <%@ page import="dao.UserRepository" %>
+<%@ page import="java.net.URLDecoder" %>
+<%@ page import="java.net.URLEncoder" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -6,7 +8,8 @@
 </head>
 <body>
 <%
-    request.setCharacterEncoding("UTF-8");
+    request.setCharacterEncoding("utf-8");
+
     String id = null;
     String password = null;
     String name = null;
@@ -21,8 +24,9 @@
 
     UserRepository userRepository = new UserRepository();
     int result = userRepository.join(id, password, name, email, phonenumber);
+
     if (result == 1){
-        response.sendRedirect("./index.jsp");
+        response.sendRedirect("./welcome.jsp");
     }else response.sendRedirect("./index.jsp");
 %>
 </body>
