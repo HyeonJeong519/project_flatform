@@ -47,7 +47,7 @@ public class ProjectRepository {
                         rs.getInt("maxParticipant"),
                         rs.getString("userId"),
                         rs.getString("fileName"),
-                rs.getString("projectInfo"));
+                        rs.getString("projectInfo"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

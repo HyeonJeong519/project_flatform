@@ -61,7 +61,7 @@
             <br>
             <p>최대 인원 : <%=rs.getInt("maxParticipant")%>명</p>
             <br>
-            <p>프로젝트 설명 : <%=rs.getString("studyInfo")%>
+            <p>프로젝트 설명 : <%=rs.getString("studyInfo")%></p>
             <p>파일 다운 : <a href="./fileDown.jsp?file_name=<%=rs.getString("studyFileName")%>"><%=rs.getString("studyFileName")%>
             </a></p>
         </div>

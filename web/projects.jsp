@@ -47,6 +47,10 @@
                 // 5. 쿼리 실행 결과 출력
                 while (rs.next()) {
         %>
+        <%
+            String projectId = rs.getString("projectId");
+            session.setAttribute("projectId", projectId);
+        %>
         <div class="col-md-4">
             <h3><%=rs.getString("projectName")%> / <%=rs.getString("projectId")%></h3>
             <h4><%=rs.getString("projectCategory")%></h4>
@@ -56,28 +60,28 @@
             <p><a href="./project.jsp?projectId=<%=rs.getString("projectId")%>" class="btn btn-secondary" role="button">상세 정보 &raquo;</a></p>
             <hr>
         </div>
-    <%
-            }
-        } catch (SQLException ex) {
-            out.println(ex.getMessage());
-            ex.printStackTrace();
-        } finally {
-            // 6. 사용한 Statement 종료
-            if (rs != null) try {
-                rs.close();
+        <%
+                }
             } catch (SQLException ex) {
+                out.println(ex.getMessage());
+                ex.printStackTrace();
+            } finally {
+                // 6. 사용한 Statement 종료
+                if (rs != null) try {
+                    rs.close();
+                } catch (SQLException ex) {
+                }
+                if (pstmt != null) try {
+                    pstmt.close();
+                } catch (SQLException ex) {
+                }
+                // 7. 커넥션 종료
+                if (connection != null) try {
+                    connection.close();
+                } catch (SQLException ex) {
+                }
             }
-            if (pstmt != null) try {
-                pstmt.close();
-            } catch (SQLException ex) {
-            }
-            // 7. 커넥션 종료
-            if (connection != null) try {
-                connection.close();
-            } catch (SQLException ex) {
-            }
-        }
-    %>
+        %>
     </div>
 </div>
 <jsp:include page="footer.jsp"/>
