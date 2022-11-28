@@ -1,7 +1,8 @@
 <%@ page import="java.sql.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" href="./resources/css/bootstrap.min.css"/>
-
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <html>
 <head>
     <title>Title</title>
@@ -25,7 +26,7 @@
                 String dbUser = "root";
                 String dbPass = "root1234";
 
-                String query = "select * from PROJECT where projectId='" + projectId + "'";
+                String query = "select * from PROJECT where projectId = '"+projectId+"'";
                 // 2. 데이터베이스 커넥션 생성
                 connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 
@@ -44,20 +45,25 @@
         %>
         <div class="jumbotron">
             <div class="container">
-                <h2 class="display-3"><%=rs.getString("projectName")%> / <%=rs.getString("projectId")%></h2>
+                <h2 class="display-3"><%=rs.getString("projectName")%> / <%=rs.getString("projectId")%>
+                </h2>
             </div>
         </div>
-        <div class="col-md-7">
-            <h4><%=rs.getString("projectCategory")%></h4>
+        <div class="col-md-6">
+            <h4><%=rs.getString("projectCategory")%>
+            </h4>
             <br>
-            <p>프로젝트 시작일 : <%=rs.getString("projectStartDate")%></p>
+            <p>프로젝트 시작일 : <%=rs.getString("projectStartDate")%>
+            </p>
             <br>
-            <p>프로젝트 종료일 : <%=rs.getString("projectEndDate")%></p>
+            <p>프로젝트 종료일 : <%=rs.getString("projectEndDate")%>
+            </p>
             <br>
             <p>최대 인원 : <%=rs.getInt("maxParticipant")%>명</p>
             <br>
             <p>프로젝트 설명 : <%=rs.getString("projectInfo")%>
-            <p>파일 다운 : <a href="./fileDown.jsp?file_name=<%=rs.getString("fileName")%>"><%=rs.getString("fileName")%></a></p>
+            <p>파일 다운 : <a href="./fileDown.jsp?file_name=<%=rs.getString("fileName")%>"><%=rs.getString("fileName")%>
+            </a></p>
         </div>
     </div>
     <%

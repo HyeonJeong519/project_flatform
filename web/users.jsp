@@ -3,6 +3,9 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.sql.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <html>
 <head>
     <title>Title</title>
@@ -49,7 +52,9 @@
         while(rs.next())
         {
 %>
-        <h2><%= rs.getString("projectName") %></h2>
+<table class="table table-bordered">
+    <tr>
+        <td width="33%"><%=rs.getString("id")%></td>
         <td width="33%"><%= rs.getString("name") %></td>
         <td width="33%"><%=rs.getString("email")%></td>
     </tr>
