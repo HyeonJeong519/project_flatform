@@ -1,4 +1,5 @@
 <%@ page import="java.sql.*" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -45,10 +46,6 @@
 
                 // 5. 쿼리 실행 결과 출력
                 while (rs.next()) {
-        %>
-        <%
-            String projectId = rs.getString("projectId");
-            session.setAttribute("projectId", projectId);
         %>
         <div class="col-md-4">
             <h3><%=rs.getString("projectName")%> / <%=rs.getString("projectId")%></h3>

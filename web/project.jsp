@@ -1,4 +1,5 @@
 <%@ page import="java.sql.*" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -26,7 +27,7 @@
                 String dbUser = "root";
                 String dbPass = "root1234";
 
-                String query = "select * from PROJECT where projectId = '"+projectId+"'";
+                String query = "select * from PROJECT where projectId = '" + projectId + "'";
                 // 2. 데이터베이스 커넥션 생성
                 connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 
