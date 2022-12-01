@@ -10,14 +10,14 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<body style="background-color: #FBEAEB">
 <jsp:include page="header.jsp"></jsp:include>
-<div class="jumbotron">
+<div class="jumbotron" style="background-color: #2E3C7E;color: #FBEAEB">
     <div class="container" align="center">
         <h3>동아리 회원 목록</h3>
     </div>
 </div>
-<table class="table table-bordered">
+<table class="table table-bordered" style="color:#2E3C7E;">
     <tr>
         <td width="33%">아이디</td>
         <td width="33%">이름</td>
@@ -52,7 +52,7 @@
         while(rs.next())
         {
 %>
-<table class="table table-bordered">
+<table class="table table-bordered" style="color: #2E3C7E">
     <tr>
         <td width="33%"><%=rs.getString("id")%></td>
         <td width="33%"><%= rs.getString("name") %></td>

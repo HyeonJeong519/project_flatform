@@ -3,14 +3,14 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<body style="background-color: #FBEAEB">
 <jsp:include page="header.jsp"></jsp:include>
-<div class="jumbotron">
+<div class="jumbotron" style="background-color: #2E3C7E; color: #FBEAEB">
     <div class="container">
         <h3>InQ 프로젝트에 대해서</h3>
     </div>
 </div>
-<div class="container">
+<div class="container" style="color: #2E3C7E">
     <div class="row">
         <div class="col-md-10">
             <p>연간 학기중 2회, 방중 2회 총 4회의 프로젝트를 진행하고 있습니다.</p>
@@ -20,6 +20,7 @@
         </div>
     </div>
 </div>
+<hr style="background: #2E3C7E;height: 1px;border: 0" >
 <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

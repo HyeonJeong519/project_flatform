@@ -8,14 +8,14 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<body style="background-color: #FBEAEB">
 <jsp:include page="header2.jsp"/>
-<div class="jumbotron">
+<div class="jumbotron" style="background-color: #2E3C7E; color: #FBEAEB">
     <div class="container">
-        <h1 class="display-3">스터디 내역</h1>
+        <h1 class="display-3" >스터디 내역</h1>
     </div>
 </div>
-<div class="container">
+<div class="container" style="background-color: #FBEAEB;color: #2E3C7E">
     <div align="right">
         <input type="button" value="스터디 생성" onclick="location.href='./addStudy.jsp'"></input>
     </div>

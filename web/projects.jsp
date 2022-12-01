@@ -9,14 +9,14 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<body style="background-color: #FBEAEB">
 <jsp:include page="header2.jsp"/>
-<div class="jumbotron">
+<div class="jumbotron" style="background-color: #2E3C7E;color: #FBEAEB;">
     <div class="container">
         <h1 class="display-3">프로젝트 내역</h1>
     </div>
 </div>
-<div class="container">
+<div class="container" style="color: #2E3C7E">
     <div align="right">
         <input type="button" value="프로젝트 생성" onclick="location.href='./addProject.jsp'"></input>
     </div>

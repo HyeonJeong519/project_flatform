@@ -6,14 +6,14 @@
 <head>
   <title>Title</title>
 </head>
-<body>
+<body style="background-color: #FBEAEB">
 <jsp:include page="header2.jsp"></jsp:include>
-<div class="jumbotron">
+<div class="jumbotron" style="background-color: #2E3C7E; color: #FBEAEB">
   <div class="container">
     <h1 class="display-3">스터디 생성</h1>
   </div>
 </div>
-<div class="container">
+<div class="container" style="background-color: #FBEAEB; color: #2E3C7E">
   <form name="newStudy" action="./processAddStudy.jsp" class="form-horizontal" method="post"
         enctype="multipart/form-data">
     <div class="form-group row">
@@ -26,9 +26,11 @@
       <label class="col-sm-2">프로젝트 카테고리</label>
       <div class="col-sm-3">
         <select name="studyCategory">
-          <option value="웹">웹</option>
+          <option value="백엔드">백엔드</option>
+          <option value="웹 프론트엔드">웹 프론트엔드</option>
           <option value="안드로이드">안드로이드</option>
           <option value="IOS">IOS</option>
+          <option value="AI">AI</option>
         </select>
       </div>
     </div>
@@ -65,7 +67,7 @@
     </div>
     <div class="form-group row">
       <div class="col-sm-offset-2 col-sm-10">
-        <input type="submit" class="btn btn-primary" value="프로젝트 생성하기">
+        <input type="submit" class="btn btn-primary" value="프로젝트 생성하기" style="background-color: #2E3C7E;color: #FBEAEB">
       </div>
     </div>
   </form>

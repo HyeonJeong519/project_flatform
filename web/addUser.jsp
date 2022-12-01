@@ -4,13 +4,13 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<body style="background-color: #FBEAEB;">
 <jsp:include page="header.jsp"/>
-<div class="container" align="center">
-  <h2 class="display-3">회원가입 </h2>
+<div class="container" align="center" style="background-color: #FBEAEB">
+  <h2 class="display-3" style="color: #2E3C7E">회원가입 </h2>
   <br><br>
 </div>
-<div class="container">
+<div class="container" style="background-color: #FBEAEB;color: #2E3C7E">
   <form name="newUser" action="./processAddUser.jsp" class="form-horizontal" method="post">
     <div class="form-group row">
       <label class="col-sm-2">아이디</label>
@@ -50,7 +50,7 @@
     <div class="form-group row">
       <div class="col-sm-offset-2 col-sm-10">
         <br>
-        <input type="submit" class="btn btn-primary" value="등록" onclick="CheckAddUser()">
+        <input type="submit" class="btn btn-primary" value="등록" onclick="CheckAddUser()" style="background-color: #2E3C7E;color: #FBEAEB">
         <br>
       </div>
     </div>

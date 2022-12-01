@@ -5,11 +5,11 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<body style="background-color: #FBEAEB">
 <jsp:include page="header.jsp"/>
-<div class="container" align="center">
-    <div class="col-md-4 col-md-offset-4">
-        <h3 class="form-signin-heading">로그인</h3>
+<div class="container" align="center" style="background-color: #FBEAEB">
+    <div class="col-md-4 col-md-offset-4" style="background-color: #FBEAEB">
+        <h3 class="form-signin-heading" style="background-color: #FBEAEB">로그인</h3>
         <%
             String error = request.getParameter("error");
             if(error != null){
@@ -27,10 +27,11 @@
                 <label for ="inputPassword" class="sr-only">Password</label>
                 <input type="password" class="form-control" placeholder="Password" name="password" id="password">
             </div>
-            <button class="btn btn btn-lg btn-success btn-block" type="submit">로그인</button>
+            <button class="btn btn btn-lg btn-success btn-block" type="submit" style="background-color: #2E3C7E;color: #FBEAEB">로그인</button>
         </form>
     </div>
 </div>
+<hr style="background: #2E3C7E;height: 1px;border: 0" >
 <jsp:include page="footer.jsp"/>
 </body>
 </html>

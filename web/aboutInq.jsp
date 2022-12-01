@@ -10,14 +10,14 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<body style="background-color: #FBEAEB">
 <jsp:include page="header.jsp"/>
-<div class="jumbotron">
+<div class="jumbotron" style="background-color: #2E3C7E; color: #FBEAEB">
     <div class="container">
         <h3>InQ 동아리 소개</h3>
     </div>
 </div>
-<div class="container">
+<div class="container" style="color: #2E3C7E;">
     <div class="row">
         <div class="col-md-10">
             <img src="./recourses/pic/inqpic.png" style="width: 50%;margin-left: auto;margin-right: auto; display: block">
@@ -29,6 +29,7 @@
         </div>
     </div>
 </div>
+<hr style="background: #2E3C7E;height: 1px;border: 0" >
 <jsp:include page="footer.jsp"/>
 </body>
 </html>

@@ -26,7 +26,7 @@
     int result = userRepository.join(id, password, name, email, phonenumber);
 
     if (result == 1){
-        response.sendRedirect("./welcome.jsp");
+        response.sendRedirect("./index.jsp");
     }else response.sendRedirect("./index.jsp");
 %>
 </body>

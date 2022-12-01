@@ -6,14 +6,14 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<body style="background-color: #FBEAEB">
 <jsp:include page="header2.jsp"></jsp:include>
-<div class="jumbotron">
+<div class="jumbotron" style="background-color: #2E3C7E; color: #FBEAEB">
     <div class="container">
         <h1 class="display-3">프로젝트 생성</h1>
     </div>
 </div>
-<div class="container">
+<div class="container" style="background-color: #FBEAEB;color: #2E3C7E">
     <form name="newProject" action="./processAddProject.jsp" class="form-horizontal" method="post"
           enctype="multipart/form-data">
         <div class="form-group row">
@@ -65,7 +65,7 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-offset-2 col-sm-10">
-                <input type="submit" class="btn btn-primary" value="프로젝트 생성하기">
+                <input type="submit" class="btn btn-primary" value="프로젝트 생성하기" style="background-color: #2E3C7E;color: #FBEAEB">
             </div>
         </div>
     </form>

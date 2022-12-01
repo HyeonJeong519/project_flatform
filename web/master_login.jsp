@@ -4,7 +4,7 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<body style="background-color: #FBEAEB">
 <jsp:include page="header.jsp"/>
 <div class="container" align="center">
     <div class="col-md-4 col-md-offset-4">
@@ -26,7 +26,7 @@
         <label for ="inputPassword" class="sr-only">Password</label>
         <input type="password" class="form-control" placeholder="Password" name="j_password" required>
     </div>
-    <button class="btn btn btn-lg btn-success btn-block" type="submit">로그인</button>
+    <button class="btn btn btn-lg btn-success btn-block" type="submit" style="background-color: #2E3C7E;color: #FBEAEB">로그인</button>
 </form>
     </div>
 </div>

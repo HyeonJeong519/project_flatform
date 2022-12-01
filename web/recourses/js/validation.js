@@ -21,21 +21,21 @@ function CheckAddUser() {
 		return false;
 	}
 	// 이름, 이메일, 전화번호 null 체크
-	if(name==null){
+	if(name.value==null){
 		alert("[이름]\n이름을 반드시 입력해주세요");
 		name.select();
 		name.focus();
 		return false;
 	}
 
-	if(email==null){
+	if(email.value==null){
 		alert("[이메일]\n이메일을 반드시 입력해주세요");
 		email.select();
 		email.focus();
 		return false;
 	}
 
-	if(phonenumber==null){
+	if(phonenumber.value==null){
 		alert("[전화번호]\n전화번호를 반드시 입력해주세요");
 		phonenumber.select();
 		phonenumber.focus();

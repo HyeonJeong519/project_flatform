@@ -8,12 +8,12 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<body style="background-color: #FBEAEB">
 <%
     String projectId = (String) session.getAttribute("projectId");
 %>
 <jsp:include page="header2.jsp"></jsp:include>
-<div class="container">
+<div class="container" style="color: #2E3C7E">
     <div class="row">
         <%
             Class.forName("com.mysql.jdbc.Driver");
@@ -44,14 +44,14 @@
             String fileName = rs.getString("fileName");
             session.setAttribute("fileName", fileName);
         %>
-        <div class="jumbotron">
+        <div class="jumbotron" style="background-color: #2E3C7E;color: #FBEAEB">
             <div class="container">
                 <h2 class="display-3"><%=rs.getString("projectName")%> / <%=rs.getString("projectId")%>
                 </h2>
             </div>
         </div>
         <div class="col-md-6">
-            <h4><%=rs.getString("projectCategory")%>
+            <h4>카테고리 : <%=rs.getString("projectCategory")%>
             </h4>
             <br>
             <p>프로젝트 시작일 : <%=rs.getString("projectStartDate")%>

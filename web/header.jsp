@@ -10,31 +10,31 @@
 <body>
 <fmt:setLocale value='<%=request.getParameter("language")%>'></fmt:setLocale>
 <fmt:bundle basename="bundle.message">
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" style="background-color: #2E3C7E; color: #FBEAEB">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
+                    aria-expanded="false" aria-controls="navbar" style="background-color :#2E3C7E; color: #FBEAEB">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="./index.jsp">InQ</a>
+            <a class="navbar-brand" href="./index.jsp" style="color: #FBEAEB">InQ</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="./addUser.jsp"><fmt:message key="join"/></a></li>
-                <li><a href="./studies.jsp"><fmt:message key="study"/></a></li>
-                <li><a href="./projects.jsp"><fmt:message key="project"/></a></li>
+        <div id="navbar" class="navbar-collapse collapse" style="color: #FBEAEB">
+            <ul class="nav navbar-nav" style="color: #FBEAEB">
+                <li style="color: #FBEAEB"><a href="./addUser.jsp" style="color: #FBEAEB"><fmt:message key="join"/></a></li>
+                <li style="color: #FBEAEB"><a href="./studies.jsp" style="color: #FBEAEB"><fmt:message key="study"/></a></li>
+                <li style="color: #FBEAEB"><a href="./projects.jsp" style="color: #FBEAEB"><fmt:message key="project"/></a></li>
             </ul>
             </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="?language=ko">Korean</a></li>
-                <li><a href="?language=en">English</a></li>
-                <li><a href="./login.jsp"><fmt:message key="login"/><span class="sr-only">(current)</span></a></li>
-                <li><a href="users.jsp"><fmt:message key="masterLogin"/></a></li>
+                <li><a href="?language=ko" style="color: #FBEAEB">Korean</a></li>
+                <li><a href="?language=en" style="color: #FBEAEB">English</a></li>
+                <li><a href="./login.jsp" style="color: #FBEAEB"><fmt:message key="login"/><span class="sr-only">(current)</span></a></li>
+                <li><a href="users.jsp" style="color: #FBEAEB"><fmt:message key="masterLogin"/></a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
